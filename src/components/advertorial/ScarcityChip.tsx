@@ -34,7 +34,7 @@ export function ScarcityChip({ variant = "chip", className = "" }: ScarcityChipP
       >
         <p className="flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-brand">
           <Flame className="h-3.5 w-3.5" />
-          Today's free consultation spots
+          आज के मुफ़्त परामर्श सीटें
         </p>
         <div className="mt-2 flex items-center justify-center gap-3">
           <div>
@@ -43,7 +43,7 @@ export function ScarcityChip({ variant = "chip", className = "" }: ScarcityChipP
               <span className="text-sm text-ink-muted"> / {SPOTS_PER_DAY}</span>
             </div>
             <div className="text-[10px] uppercase tracking-wider text-ink-muted">
-              spots left
+              सीटें बची हैं
             </div>
           </div>
           <div className="h-10 w-px bg-rule" />
@@ -52,7 +52,7 @@ export function ScarcityChip({ variant = "chip", className = "" }: ScarcityChipP
               {pad(t.m)}:{pad(t.s)}
             </div>
             <div className="text-[10px] uppercase tracking-wider text-ink-muted">
-              ends in
+              समाप्त होने में
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@ export function ScarcityChip({ variant = "chip", className = "" }: ScarcityChipP
       </span>
       <span className="opacity-80">·</span>
       <span className="tabular-nums">{spots}</span>
-      <span className="opacity-80">spots left</span>
+      <span className="opacity-80">सीटें बची हैं</span>
     </span>
   );
 }

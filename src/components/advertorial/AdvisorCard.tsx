@@ -11,14 +11,14 @@ export function AdvisorCard() {
       <div className="flex items-center gap-2">
         <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-brand">
           <PhoneCall className="h-3 w-3" />
-          Who will call you
+          आपको कौन कॉल करेगा
         </span>
       </div>
 
       <div className="mt-4 flex items-start gap-4">
         <img
           src={advisorPhoto}
-          alt="Dr. Rakesh K., Senior Wellness Advisor"
+          alt="डॉ. राकेश के., सीनियर वेलनेस एडवाइजर"
           loading="lazy"
           className="h-16 w-16 flex-shrink-0 rounded-full object-cover object-top ring-2 ring-brand/30 shadow-md"
         />
@@ -27,7 +27,7 @@ export function AdvisorCard() {
             Dr. Rakesh K. <span className="text-sm font-semibold text-ink-muted">(BAMS)</span>
           </div>
           <div className="text-xs text-ink-muted">
-            Senior Wellness Advisor · Intimacy Schools
+            सीनियर वेलनेस एडवाइजर · इंटीमेसी स्कूल्स
           </div>
         </div>
       </div>
@@ -36,32 +36,31 @@ export function AdvisorCard() {
         <li className="flex items-start gap-2">
           <GraduationCap className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
           <span>
-            <strong>35+ years</strong> of experience — men's wellness counselling
+            <strong>35+ वर्षों</strong> का अनुभव — पुरुषों की सेहत और परामर्श में
           </span>
         </li>
         <li className="flex items-start gap-2">
           <Languages className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
           <span>
-            <strong>English, Tamil, हिंदी</strong> — speak in the language you prefer
+            <strong>अंग्रेजी, तमिल, हिंदी</strong> — अपनी पसंद की भाषा में बात करें
           </span>
         </li>
         <li className="flex items-start gap-2">
           <ShieldCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
           <span>
-            <strong>100% confidential</strong> — no judgement, no sales pressure
+            <strong>100% गोपनीय (Confidential)</strong> — कोई जजमेंट नहीं, कोई दबाव नहीं
           </span>
         </li>
         <li className="flex items-start gap-2">
           <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
           <span>
-            Average call duration <strong>15–20 minutes</strong>
+            औसत कॉल का समय <strong>15-20 मिनट</strong>
           </span>
         </li>
       </ul>
 
       <p className="mt-4 border-t border-rule pt-3 text-[11px] text-ink-muted italic leading-relaxed">
-        "My job isn't to sell a product — it's to give you the right guidance.
-        If it isn't right for you, I'll tell you not to buy."
+        "मेरा काम केवल प्रोडक्ट बेचना नहीं है — आपको सही सलाह देना है। अगर यह आपके लिए सही नहीं है, तो मैं खुद आपको न खरीदने की सलाह दूंगा।"
       </p>
     </div>
   );

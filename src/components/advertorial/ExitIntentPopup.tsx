@@ -131,11 +131,11 @@ export function ExitIntentPopup() {
         </div>
 
         <h3 className="mt-3 text-center font-serif text-2xl font-bold text-ink">
-          One moment — don't leave yet
+          एक मिनट — अभी मत जाइए
         </h3>
         <p className="mt-2 text-center text-sm text-ink-muted leading-relaxed">
-          A free personal consultation call — <strong className="text-ink">₹0 cost</strong>,
-          zero pressure. After speaking to the advisor, you decide whether to order.
+          एक मुफ़्त व्यक्तिगत परामर्श कॉल — <strong className="text-ink">₹0 शुल्क</strong>,
+          कोई दबाव नहीं। एडवाइजर से बात करने के बाद ही आप तय करें।
         </p>
 
         <div className="mt-4 flex justify-center">
@@ -148,7 +148,7 @@ export function ExitIntentPopup() {
           className="cta-premium mt-5 flex h-12 items-center justify-center gap-2 rounded-md text-sm font-bold text-brand-foreground"
         >
           <PhoneCall className="h-4 w-4" />
-          Get a free call
+          मुफ़्त कॉल प्राप्त करें
           <span className="text-base">→</span>
         </a>
 
@@ -157,7 +157,7 @@ export function ExitIntentPopup() {
           onClick={close}
           className="mt-3 block w-full text-center text-xs text-ink-muted underline hover:text-ink"
         >
-          No, thanks
+          नहीं, धन्यवाद
         </button>
       </div>
     </div>

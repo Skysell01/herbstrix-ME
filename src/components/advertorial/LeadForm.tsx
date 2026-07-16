@@ -23,19 +23,19 @@ const Schema = z.object({
   name: z
     .string()
     .trim()
-    .min(1, "Please enter your name")
+    .min(1, "कृपया अपना नाम दर्ज करें")
     .max(100)
-    .regex(/^[a-zA-Z\s]+$/, "Only alphabetic characters are allowed"),
+    .regex(/^[a-zA-Z\s]+$/, "नाम में केवल अक्षर होने चाहिए"),
   phone: z
     .string()
     .trim()
-    .regex(/^\d{10}$/, "invalid number the reuired 10 digit number"),
+    .regex(/^\d{10}$/, "अमान्य नंबर, कृपया 10 अंकों का नंबर डालें"),
   age: z.coerce
-    .number({ invalid_type_error: "Please enter your age" })
+    .number({ invalid_type_error: "कृपया अपनी उम्र दर्ज करें" })
     .int()
-    .min(18, "18+ only")
-    .max(99, "Please enter a valid age"),
-  city: z.string().trim().min(1, "Please enter your city").max(80),
+    .min(18, "केवल 18 वर्ष या उससे अधिक")
+    .max(99, "कृपया सही उम्र दर्ज करें"),
+  city: z.string().trim().min(1, "कृपया अपना शहर दर्ज करें").max(80),
   concern: z.enum(["stamina", "energy", "confidence", "wellness", "guidance"]),
   bestTime: z.enum(["morning", "afternoon", "evening", "anytime"]),
 });
@@ -70,7 +70,7 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
         return;
       }
       setDone(true);
-      toast.success("Request received. Our advisor will call you shortly.");
+      toast.success("अनुरोध प्राप्त हुआ। हमारे एडवाइजर आपको जल्द ही कॉल करेंगे।");
       // Fire Meta Pixel Lead event for Facebook ads tracking
       if (typeof window !== "undefined" && typeof (window as any).fbq === "function") {
         (window as any).fbq("track", "Lead", {
@@ -90,7 +90,7 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
       });
     } catch (e) {
       console.error(e);
-      toast.error("Something went wrong. Please try again.");
+      toast.error("कुछ गलत हुआ। कृपया फिर से प्रयास करें।");
     }
   };
 
@@ -106,10 +106,10 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
         </div>
 
         <h3 className="text-center font-serif text-2xl sm:text-3xl text-ink">
-          Thank you, {firstName}! 🙏
+          धन्यवाद, {firstName}! 🙏
         </h3>
         <p className="mt-2 text-center text-sm sm:text-base text-ink-muted">
-          Your consultation request is <span className="font-semibold text-ink">confirmed</span>.
+          आपका परामर्श अनुरोध (Consultation request) <span className="font-semibold text-ink">कन्फर्म</span> हो गया है।
         </p>
 
         {/* Expert call callout */}
@@ -120,44 +120,44 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
             </div>
             <div className="flex-1">
               <p className="text-sm sm:text-base font-bold text-ink leading-snug">
-                Our wellness advisor will call you shortly
+                हमारे वेलनेस एडवाइजर आपको जल्द ही कॉल करेंगे
               </p>
               <p className="mt-1 text-xs sm:text-sm text-ink-muted leading-relaxed">
-                They'll understand your concern and recommend the <strong className="text-ink">right pack, dosage and offer</strong> —
-                a completely <strong className="text-ink">private</strong> and <strong className="text-ink">judgement-free</strong> conversation.
-                Calls usually come within <strong className="text-ink">15–30 minutes</strong>.
+                वह आपकी समस्या को समझकर सही <strong className="text-ink">पैक, खुराक और ऑफर्स</strong> की सिफारिश करेंगे —
+                यह पूरी तरह से <strong className="text-ink">प्राइवेट</strong> और <strong className="text-ink">गोपनीय</strong> बातचीत होगी।
+                कॉल आमतौर पर <strong className="text-ink">15-30 मिनट</strong> के भीतर आती हैं।
               </p>
             </div>
           </div>
         </div>
 
         <div className="mt-5 rounded-xl border border-rule bg-card/70 p-4 sm:p-5 text-left">
-          <p className="text-xs font-bold uppercase tracking-wider text-brand">What happens next</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-brand">आगे क्या होगा</p>
           <ol className="mt-3 space-y-3 text-sm text-ink">
             <li className="flex gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-brand-foreground">
                 1
               </span>
-              <span>Our <strong>wellness advisor</strong> will call you personally.</span>
+              <span>हमारे <strong>वेलनेस एडवाइजर</strong> आपको व्यक्तिगत रूप से कॉल करेंगे।</span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-brand-foreground">
                 2
               </span>
-              <span>They'll understand your age, lifestyle and goal and recommend the <strong>right pack</strong>.</span>
+              <span>वह आपकी उम्र, लाइफस्टाइल और लक्ष्य के अनुसार सही <strong>पैक</strong> की सलाह देंगे।</span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-brand-foreground">
                 3
               </span>
-              <span>If you agree, confirm the order via <strong>COD or online</strong> — zero pressure.</span>
+              <span>यदि आप सहमत हों, तो <strong>कैश ऑन डिलीवरी (COD) या ऑनलाइन</strong> से ऑर्डर कन्फर्म करें — कोई दबाव नहीं।</span>
             </li>
           </ol>
         </div>
 
         <p className="mt-4 text-center text-xs text-ink-muted flex items-center justify-center gap-1.5">
           <Lock className="h-3 w-3" />
-          Your details are 100% safe and confidential.
+          की डिटेल्स 100% सुरक्षित और गोपनीय हैं।
         </p>
       </div>
     );
@@ -182,15 +182,15 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
         <div className="mb-3 flex items-center justify-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
             <ShieldCheck className="h-3.5 w-3.5" />
-            100% Confidential Consultation
+            100% गोपनीय परामर्श (Confidential Consultation)
           </span>
         </div>
 
         <h3 className="text-center font-serif text-2xl sm:text-[26px] text-ink leading-tight">
-          Check if it's right for you — <span className="text-brand">free advisor call</span>
+          जांचें कि क्या यह आपके लिए सही है — <span className="text-brand">मुफ़्त एडवाइजर कॉल</span>
         </h3>
         <p className="mt-2 text-center text-sm text-ink-muted">
-          Share your details. Our wellness advisor will call you personally.
+          अपनी डिटेल्स शेयर करें। हमारे वेलनेस एडवाइजर आपको व्यक्तिगत रूप से कॉल करेंगे।
         </p>
 
         <div className="mt-6 grid gap-4">
@@ -198,7 +198,7 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <Label htmlFor="name" className="text-sm font-semibold text-ink">
-                Full name
+                पूरा नाम (Full Name)
               </Label>
               <div className="relative mt-1.5">
                 <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
@@ -218,7 +218,7 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
 
             <div>
               <Label htmlFor="age" className="text-sm font-semibold text-ink">
-                Age
+                उम्र (Age)
               </Label>
               <div className="relative mt-1.5">
                 <Calendar className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
@@ -242,7 +242,7 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
           {/* Phone */}
           <div>
             <Label htmlFor="phone" className="text-sm font-semibold text-ink">
-              Mobile Number <span className="text-brand">*</span>
+              मोबाइल नंबर (Mobile Number) <span className="text-brand">*</span>
             </Label>
             <div className="relative mt-1.5">
               <Phone className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
@@ -262,19 +262,19 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
             {form.formState.errors.phone && (
               <p className="mt-1 text-xs text-destructive">{form.formState.errors.phone.message}</p>
             )}
-            <p className="mt-1 text-xs text-ink-muted">The advisor will WhatsApp / call this number</p>
+            <p className="mt-1 text-xs text-ink-muted">एडवाइजर इस नंबर पर व्हाट्सएप या कॉल करेंगे</p>
           </div>
 
           {/* City */}
           <div>
             <Label htmlFor="city" className="text-sm font-semibold text-ink">
-              City
+              शहर (City)
             </Label>
             <div className="relative mt-1.5">
               <MapPin className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
               <Input
                 id="city"
-                placeholder="Chennai, Coimbatore, Madurai..."
+                placeholder="दिल्ली, मुंबई, बेंगलुरु..."
                 autoComplete="address-level2"
                 maxLength={80}
                 className="h-12 pl-10 text-base"
@@ -297,12 +297,12 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
               {form.formState.isSubmitting ? (
                 <>
                   <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                  Submitting…
+                  सबमिट हो रहा है…
                 </>
               ) : (
                 <>
                   <PhoneCall className="h-5 w-5" />
-                  Get a free callback
+                  मुफ़्त कॉल बैक प्राप्त करें
                   <span className="text-lg">→</span>
                 </>
               )}
@@ -312,8 +312,8 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
           {/* Microcopy */}
           <p className="text-center text-xs text-ink-muted leading-relaxed">
             <Lock className="inline h-3 w-3 mr-1 -mt-0.5" />
-            100% private. Your number will only be used for the advisor call.
-            <span className="block mt-0.5">No spam. No pressure. No awkward questions.</span>
+            100% प्राइवेट। आपका नंबर केवल एडवाइजर कॉल के लिए उपयोग किया जाएगा।
+            <span className="block mt-0.5">कोई स्पैम नहीं। कोई दबाव नहीं। कोई अजीब सवाल नहीं।</span>
           </p>
         </div>
       </form>

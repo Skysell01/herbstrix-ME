@@ -35,10 +35,10 @@ export function StickyCTA() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-rule bg-paper/95 backdrop-blur md:hidden">
       <div className="flex items-center justify-between gap-3 px-4 py-3">
         <div className="text-xs leading-tight">
-          <div className="font-semibold text-ink">Free wellness consultation</div>
+          <div className="font-semibold text-ink">मुफ़्त वेलनेस परामर्श</div>
           <div className="text-ink-muted">
             <span className="font-semibold text-brand tabular-nums">{mounted ? spots : "—"}</span>{" "}
-            spots left today
+            सीटें बची हैं आज
           </div>
         </div>
         <a
@@ -47,7 +47,7 @@ export function StickyCTA() {
           className="cta-premium flex items-center gap-1.5 rounded-md px-4 py-2.5 text-sm font-bold text-brand-foreground animate-pulse-glow"
         >
           <PhoneCall className="h-4 w-4" />
-          Free call
+          मुफ़्त कॉल
         </a>
       </div>
     </div>

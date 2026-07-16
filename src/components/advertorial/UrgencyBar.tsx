@@ -62,24 +62,24 @@ export function UrgencyBar() {
           onClick={handleClick}
           className="flex flex-1 flex-wrap items-center gap-x-2 gap-y-0.5 text-xs sm:text-sm font-semibold leading-snug"
         >
-          <span>Today only — {SPOTS_PER_DAY} free consultations</span>
+          <span>सिर्फ आज के लिए — {SPOTS_PER_DAY} मुफ़्त परामर्श</span>
           <span
             className={`inline-flex items-center gap-1 rounded-full bg-paper/20 px-2 py-0.5 text-[11px] sm:text-xs ${
               lowSpots ? "ring-1 ring-paper" : ""
             }`}
           >
             <span className="font-bold tabular-nums">{spots}</span>
-            <span className="opacity-90">spots left</span>
+            <span className="opacity-90">सीटें बची हैं</span>
           </span>
           <span className="hidden sm:inline opacity-90">·</span>
           <span className="inline-flex items-center gap-1 tabular-nums">
-            <span className="opacity-90">Ends in:</span>
+            <span className="opacity-90">समाप्त होने वाला है:</span>
             <span className="font-bold">
               {pad(t.m)}:{pad(t.s)}
             </span>
           </span>
           <span className="ml-auto inline-flex items-center gap-1 rounded-md bg-paper/15 px-2 py-1 text-[11px] sm:text-xs font-bold underline-offset-2 hover:underline">
-            Claim →
+            दावा करें →
           </span>
         </a>
         <button

@@ -27,13 +27,13 @@ const Step1Schema = z.object({
   name: z
     .string()
     .trim()
-    .min(1, "Please enter your name")
+    .min(1, "कृपया अपना नाम दर्ज करें")
     .max(100)
-    .regex(/^[a-zA-Z\s]+$/, "Only alphabetic characters are allowed"),
+    .regex(/^[a-zA-Z\s]+$/, "नाम में केवल अक्षर होने चाहिए"),
   phone: z
     .string()
     .trim()
-    .regex(/^\d{10}$/, "invalid number the reuired 10 digit number"),
+    .regex(/^\d{10}$/, "अमान्य नंबर, कृपया 10 अंकों का नंबर डालें"),
   // Honeypot — bots fill this, humans never see it
   website: z.string().max(0).optional().or(z.literal("")),
 });
@@ -41,10 +41,10 @@ type Step1Values = z.infer<typeof Step1Schema>;
 
 const Step2Schema = z.object({
   age: z.coerce
-    .number({ invalid_type_error: "Your age" })
+    .number({ invalid_type_error: "कृपया अपनी उम्र दर्ज करें" })
     .int()
-    .min(18, "18+ only")
-    .max(99, "Valid age"),
+    .min(18, "केवल 18 वर्ष या उससे अधिक")
+    .max(99, "कृपया सही उम्र दर्ज करें"),
   city: z.string().trim().max(80).optional().or(z.literal("")),
   concern: z.enum(["stamina", "energy", "confidence", "wellness", "guidance"]),
   bestTime: z.enum(["morning", "afternoon", "evening", "anytime"]),
@@ -130,11 +130,11 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
         content_name: "Advisor Callback Request",
         step: 1,
       });
-      toast.success("Thanks! Just one more step — your advisor will be better prepared.");
+      toast.success("धन्यवाद! बस एक आखिरी स्टेप — ताकि एडवाइजर बेहतर तैयारी के साथ कॉल कर सकें।");
       setStep(2);
     } catch (e) {
       console.error(e);
-      toast.error("Something went wrong. Please try again.");
+      toast.error("कुछ गलत हुआ। कृपया फिर से प्रयास करें।");
     }
   };
 
@@ -172,11 +172,11 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
         content_name: "Lead Step 2",
         content_category: values.concern,
       });
-      toast.success("Thanks! Our advisor will call you shortly.");
+      toast.success("धन्यवाद! हमारे एडवाइजर आपको जल्दी कॉल करेंगे।");
       skipStep2();
     } catch (e) {
       console.error(e);
-      toast.error("Something went wrong.");
+      toast.error("कुछ गलत हुआ।");
     }
   };
 
@@ -193,11 +193,11 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           <CheckCircle2 className="h-10 w-10 text-brand" />
         </div>
         <h3 className="text-center font-serif text-2xl sm:text-3xl text-ink">
-          Thank you, {firstName}! 🙏
+          धन्यवाद, {firstName}! 🙏
         </h3>
         <p className="mt-2 text-center text-sm sm:text-base text-ink-muted">
-          Your consultation request is{" "}
-          <span className="font-semibold text-ink">confirmed</span>.
+          आपका परामर्श अनुरोध (Consultation request){" "}
+          <span className="font-semibold text-ink">कन्फर्म</span> हो गया है।
         </p>
         <div className="mt-6 rounded-xl border-2 border-brand bg-brand/10 p-4 sm:p-5">
           <div className="flex items-start gap-3">
@@ -206,18 +206,18 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
             </div>
             <div className="flex-1">
               <p className="text-sm sm:text-base font-bold text-ink leading-snug">
-                Our wellness advisor will call you within <strong>15–30 minutes</strong>
+                हमारे वेलनेस एडवाइजर आपको <strong>15–30 मिनट</strong> में कॉल करेंगे
               </p>
               <p className="mt-1 text-xs sm:text-sm text-ink-muted leading-relaxed">
-                A completely private, judgement-free conversation. They'll explain the right pack,
-                dosage and offer for you.
+                यह बिल्कुल प्राइवेट और गोपनीयता वाली बातचीत होगी। एडवाइजर आपको सही पैक,
+                खुराक और ऑफर्स समझाएंगे।
               </p>
             </div>
           </div>
         </div>
         <p className="mt-4 text-center text-xs text-ink-muted flex items-center justify-center gap-1.5">
           <Lock className="h-3 w-3" />
-          Your details are 100% safe.
+          आपकी डिटेल्स 100% सुरक्षित हैं।
         </p>
       </div>
     );
@@ -241,10 +241,10 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           </div>
 
           <h3 className="text-center font-serif text-xl sm:text-2xl text-ink leading-tight">
-            <span className="text-brand">Free call</span> — only 30 seconds
+            <span className="text-brand">मुफ़्त कॉल (Free Call)</span> — सिर्फ 30 सेकंड
           </h3>
           <p className="mt-1.5 text-center text-xs sm:text-sm text-ink-muted">
-            Just name + number. The advisor will call you.
+            बस अपना नाम और नंबर दें। एडवाइजर आपको कॉल करेंगे।
           </p>
 
           {/* Honeypot — visually hidden, off-screen */}
@@ -265,13 +265,13 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           <div className="mt-5 grid gap-3">
             <div>
               <Label htmlFor="mini-name" className="sr-only">
-                Full name
+                पूरा नाम (Full Name)
               </Label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
                 <Input
                   id="mini-name"
-                  placeholder="Your name"
+                  placeholder="आपका नाम"
                   autoComplete="name"
                   maxLength={100}
                   className="h-12 pl-10 text-base"
@@ -288,7 +288,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
 
             <div>
               <Label htmlFor="mini-phone" className="sr-only">
-                Mobile Number
+                मोबाइल नंबर (Mobile Number)
               </Label>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
@@ -324,12 +324,12 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
                 {step1.formState.isSubmitting ? (
                   <>
                     <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                    Submitting…
+                    सबमिट हो रहा है…
                   </>
                 ) : (
                   <>
                     <PhoneCall className="h-5 w-5" />
-                    Get a free callback
+                    मुफ़्त कॉल बैक प्राप्त करें
                     <span className="text-lg">→</span>
                   </>
                 )}
@@ -339,11 +339,11 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
             <div className="mt-1 space-y-1.5 text-center">
               <p className="flex items-center justify-center gap-1.5 text-xs font-semibold text-ink">
                 <ShieldCheck className="h-3.5 w-3.5 text-brand" />
-                Your info is safe · No spam · 1 call only
+                आपकी जानकारी सुरक्षित है · कोई स्पैम नहीं · केवल 1 कॉल
               </p>
               <p className="flex items-center justify-center gap-1.5 text-[11px] text-ink-muted">
                 <Lock className="h-3 w-3" />
-                ₹0 cost · COD available · zero pressure
+                ₹0 शुल्क · कैश ऑन डिलीवरी उपलब्ध · कोई दबाव नहीं
               </p>
             </div>
           </div>
@@ -359,21 +359,21 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           <div className="mb-3 flex items-center justify-center gap-2">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-brand">
               <CheckCircle2 className="h-3.5 w-3.5" />
-              Step 1 done
+              स्टेप 1 पूरा हुआ
             </span>
           </div>
 
           <h3 className="text-center font-serif text-xl sm:text-2xl text-ink leading-tight">
-            A few details so the advisor is <span className="text-brand">better prepared</span>
+            कुछ जानकारी ताकि एडवाइजर <span className="text-brand">बेहतर तैयारी के साथ बात कर सकें</span>
           </h3>
           <p className="mt-1.5 text-center text-xs sm:text-sm text-ink-muted">
-            Optional — even if you skip, the advisor will still call.
+            वैकल्पिक — अगर आप स्किप भी करेंगे, तो भी एडवाइजर आपको कॉल करेंगे।
           </p>
 
           <div className="mt-5 grid gap-3">
             <div>
               <Label htmlFor="step2-age" className="text-sm font-semibold text-ink">
-                Age
+                उम्र (Age)
               </Label>
               <div className="relative mt-1.5">
                 <Calendar className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-muted" />
@@ -406,12 +406,12 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
                 {step2.formState.isSubmitting ? (
                   <>
                     <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                    Saving…
+                    सहेज (Save) हो रहा है…
                   </>
                 ) : (
                   <>
                     <CheckCircle2 className="h-5 w-5" />
-                    Submit details
+                    विवरण सबमिट करें
                   </>
                 )}
               </span>
@@ -419,7 +419,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
 
             <p className="flex items-center justify-center gap-1.5 text-xs font-semibold text-ink">
               <ShieldCheck className="h-3.5 w-3.5 text-brand" />
-              Your info is safe · No spam · 1 call only
+              आपकी जानकारी सुरक्षित है · कोई स्पैम नहीं · केवल 1 कॉल
             </p>
 
             <button
@@ -427,7 +427,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
               onClick={skipStep2}
               className="text-center text-xs text-ink-muted underline hover:text-ink"
             >
-              Skip — let the advisor call me now
+              स्किप करें — एडवाइजर को कॉल करने दें
             </button>
           </div>
         </form>

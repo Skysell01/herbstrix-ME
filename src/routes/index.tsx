@@ -49,12 +49,12 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "ESI Wellness Alpha Men — Free Personal Consultation for Men | ESI Wellness",
+        title: "ESI Wellness Alpha Men — पुरुषों के लिए मुफ़्त व्यक्तिगत परामर्श | ESI Wellness",
       },
       {
         name: "description",
         content:
-          "Free personal consultation call with our wellness advisor. ESI Wellness Alpha Men supports stamina, energy and men's wellness. 100% confidential. Cash on Delivery available.",
+          "हमारे वेलनेस एडवाइजर के साथ मुफ़्त व्यक्तिगत परामर्श कॉल। ESI Wellness Alpha Men स्टैमिना, एनर्जी और पुरुषों की सेहत को सपोर्ट करता है। 100% गोपनीय। कैश ऑन डिलीवरी उपलब्ध है।",
       },
       { property: "og:image", content: heroDesktopImg },
     ],
@@ -63,140 +63,140 @@ export const Route = createFileRoute("/")({
 });
 
 const problems = [
-  "Energy drops too quickly through the day",
-  "Confidence takes a hit",
-  "Stress and lifestyle cause constant worry",
-  "Too many products in the market — it's confusing",
-  "It's a personal issue — hard to talk about with anyone",
+  "दिनभर में एनर्जी बहुत जल्दी खत्म हो जाती है",
+  "आत्मविश्वास (Confidence) कम हो जाता है",
+  "तनाव (Stress) और लाइफस्टाइल की वजह से हमेशा चिंता बनी रहती है",
+  "मार्केट में बहुत सारे प्रोडक्ट्स हैं — बहुत कन्फ्यूजन होती है",
+  "यह एक पर्सनल बात है — किसी से शेयर करने में झिझक होती है",
 ];
 
 const benefits = [
   {
     icon: Activity,
-    title: "Stamina Support",
-    body: "Helps you stay active and maintain daily stamina.",
+    title: "स्टैमिना सपोर्ट",
+    body: "आपको दिनभर एक्टिव रखने और डेली स्टैमिना बढ़ाने में मदद करता है।",
   },
   {
     icon: Zap,
-    title: "Energy Support",
-    body: "Reduces fatigue and helps sustain a fresh, vibrant energy.",
+    title: "एनर्जी सपोर्ट",
+    body: "थकावट कम करता है और एनर्जी लेवल्स को हाई रखता है।",
   },
   {
     icon: HeartPulse,
-    title: "Men's Vitality Support",
-    body: "Supports overall men's wellness and confidence.",
+    title: "पुरुषों की वाइटलिटी सपोर्ट",
+    body: "ओवरऑल पुरुषों की सेहत और कॉन्फिडेंस को बेहतर बनाता है।",
   },
   {
     icon: Leaf,
-    title: "Easy Daily Routine",
-    body: "Herbal formula. One in the morning, one at night — that's it.",
+    title: "आसान डेली रूटीन",
+    body: "हर्बल फॉर्मूला। एक कैप्सूल सुबह, एक रात को — बस इतना ही।",
   },
 ];
 
 const callSteps = [
-  { icon: ClipboardList, title: "Fill the form", body: "Share your details — takes just 30 seconds." },
-  { icon: PhoneCall, title: "Advisor calls you personally", body: "A completely confidential conversation." },
-  { icon: Stethoscope, title: "Understands your concern", body: "Considers your age, goal and lifestyle." },
-  { icon: Headphones, title: "Explains fit & best offer", body: "The right pack, usage and best price for you." },
-  { icon: HandshakeIcon, title: "Confirm order only if you agree", body: "COD or online — zero pressure." },
+  { icon: ClipboardList, title: "फॉर्म भरें", body: "अपनी डिटेल्स शेयर करें — सिर्फ 30 सेकंड लगेंगे।" },
+  { icon: PhoneCall, title: "एडवाइजर आपको पर्सनली कॉल करेंगे", body: "यह बिल्कुल गोपनीय और प्राइवेट कॉल होगी।" },
+  { icon: Stethoscope, title: "आपकी समस्या को समझेंगे", body: "आपकी उम्र, गोल और लाइफस्टाइल के हिसाब से गाइडेंस देंगे।" },
+  { icon: Headphones, title: "सही खुराक और बेस्ट ऑफर समझाएंगे", body: "आपके लिए सही पैक, इस्तेमाल का तरीका और बेस्ट प्राइस बताएंगे।" },
+  { icon: HandshakeIcon, title: "आप सहमत हों तभी ऑर्डर कन्फर्म करें", body: "कैश ऑन डिलीवरी (COD) या ऑनलाइन — कोई प्रेशर नहीं है।" },
 ];
 
 const testimonials = [
   {
-    name: "Rohit S.",
+    name: "रोहित एस.",
     avatar: avatar1,
     age: 34,
-    city: "Chennai",
-    before: "Work stress + late nights — by evening I was wiped out. My confidence even with my wife took a hit.",
+    city: "चेन्नई",
+    before: "ऑफिस का तनाव और लेट नाइट्स की वजह से शाम तक थक जाता था। स्टैमिना कम होने लगा था।",
     after:
-      "In 3 weeks my energy was back. The routine the advisor suggested was simple. No side effects at all.",
-    duration: "3 weeks",
+      "3 हफ़्तों में मेरी एनर्जी वापस आ गई। एडवाइजर द्वारा बताया गया रूटीन आसान था और कोई साइड इफेक्ट नहीं हुआ।",
+    duration: "3 हफ़्ते",
   },
   {
-    name: "Vivek M.",
+    name: "विवेक एम.",
     avatar: avatar2,
     age: 41,
-    city: "Coimbatore",
-    before: "I'd tried so many products — nothing worked, just wasted money.",
+    city: "कोयंबटूर",
+    before: "मैंने बहुत सारे प्रोडक्ट्स ट्राई किए थे — कुछ काम नहीं आया, बस पैसे बर्बाद हुए।",
     after:
-      "The fact that the advisor spoke to me for free first built trust. Clear difference in 1 month. Came in a discreet box.",
-    duration: "1 month",
+      "एडवाइजर ने कॉल पर मुफ़्त गाइडेंस दी जिससे भरोसा बना। 1 महीने में साफ़ बदलाव दिखा, और पार्सल बिना kisi label ke आया।",
+    duration: "1 महीना",
   },
   {
-    name: "Akash P.",
+    name: "आकाश पी.",
     avatar: avatar3,
     age: 29,
-    city: "Madurai",
-    before: "Newly married. Performance anxiety was real — couldn't speak about it with anyone.",
+    city: "मदुरै",
+    before: "नई-नई शादी हुई थी। परफॉरमेंस एंग्जायटी (Performance anxiety) की वजह से किसी से बात नहीं कर पाता था।",
     after:
-      "Talking on the phone is what gave me courage. The advisor explained things really well. Now I feel confident.",
-    duration: "6 weeks",
+      "फ़ोन पर बात करने से हौसला मिला। एडवाइजर ने सब बहुत अच्छे से समझाया। अब मैं कॉन्फिडेंट महसूस करता हूँ।",
+    duration: "6 हफ़्ते",
   },
   {
-    name: "Suresh R.",
+    name: "सुरेश आर.",
     avatar: avatar4,
     age: 47,
-    city: "Trichy",
-    before: "Getting older, stamina dropping. I felt embarrassed to go see a doctor.",
+    city: "त्रिची",
+    before: "उम्र बढ़ने के साथ स्टैमिना कम हो रहा था। डॉक्टर के पास जाने में शर्म आती थी।",
     after:
-      "Talking to the wellness advisor felt like talking to a friend. They recommended a pack. COD delivery, and I'm a regular now.",
-    duration: "2 months",
+      "वेलनेस एडवाइजर से बात करके दोस्त जैसा लगा। उन्होंने एक पैक सजेस्ट किया। कैश ऑन डिलीवरी से डिलीवरी मिली, अब रेगुलर चल रहा है।",
+    duration: "2 महीने",
   },
   {
-    name: "Karthik V.",
+    name: "कार्तिक वी.",
     avatar: avatar5,
     age: 36,
-    city: "Salem",
-    before: "Even with the gym, my energy levels stayed low. There was real dissatisfaction in married life.",
+    city: "सेलम",
+    before: "जिम जाने के बाद भी एनर्जी लो रहती थी। वैवाहिक जीवन में थोड़ा तनाव बढ़ गया था।",
     after:
-      "The advisor understood my lifestyle and gave proper advice. Positive change in 5 weeks. My wife is happier too.",
-    duration: "5 weeks",
+      "एडवाइजर ने मेरी लाइफस्टाइल समझकर सही सलाह दी। 5 हफ़्तों में पॉजिटिव बदलाव मिला। हम दोनों खुश हैं।",
+    duration: "5 हफ़्ते",
   },
   {
-    name: "Manikandan T.",
+    name: "मणिकंदन टी.",
     avatar: avatar6,
     age: 38,
-    city: "Tirunelveli",
-    before: "I was scared to order online — worried the packaging would give it away to my family.",
+    city: "तिरुनेलवेली",
+    before: "ऑनलाइन ऑर्डर करने में डर लगता था कि कहीं फैमिली को पता न चल जाए।",
     after:
-      "It arrived in a plain box, no labels. No one had any idea. And the product actually worked.",
-    duration: "1 month",
+      "पार्सल बिना किसी लेबल के बिल्कुल प्लेन बॉक्स में आया। किसी को पता नहीं चला और प्रोडक्ट ने काम भी किया।",
+    duration: "1 महीना",
   },
 ];
 
 const compare = [
-  { feature: "Confidential advisor call", us: true, them: false },
-  { feature: "Personalised usage guidance", us: true, them: false },
-  { feature: "Discreet plain packaging", us: true, them: "Maybe" },
-  { feature: "Herbal wellness support", us: true, them: "Varies" },
-  { feature: "Cash on Delivery", us: true, them: "Maybe" },
-  { feature: "Post-purchase support", us: true, them: false },
+  { feature: "गोपनीय एडवाइजर कॉल (Confidential advisor call)", us: true, them: false },
+  { feature: "इस्तेमाल के लिए व्यक्तिगत गाइडेंस (Personalised usage guidance)", us: true, them: false },
+  { feature: "साधारण बिना लेबल वाली पैकेजिंग (Discreet plain packaging)", us: true, them: "शायद" },
+  { feature: "हर्बल वेलनेस सपोर्ट (Herbal wellness support)", us: true, them: "अलग-अलग" },
+  { feature: "कैश ऑन डिलीवरी (Cash on Delivery)", us: true, them: "शायद" },
+  { feature: "कॉल पर गाइडेंस सपोर्ट (Post-purchase support)", us: true, them: false },
 ];
 
 const faqs = [
   {
-    q: "💰 How much does it cost? Can I know the price upfront?",
-    a: "Pricing depends on the pack size and your specific needs. During the advisor call, they will transparently share the right pack and the right price for you — no hidden charges. If it isn't right for you, simply don't buy — there is zero pressure.",
+    q: "💰 इसकी कीमत कितनी है? क्या मुझे कीमत पहले पता चल सकती है?",
+    a: "कीमत आपकी जरूरत और पैक साइज पर निर्भर करती है। एडवाइजर कॉल पर आपको बिना किसी छिपे हुए चार्ज के सही पैक और सही कीमत बताएंगे। अगर आपको सही न लगे, तो बिल्कुल न खरीदें — कोई दबाव नहीं है।",
   },
   {
-    q: "⚠️ Are there any side effects?",
-    a: "ESI Wellness Alpha Men is a 100% herbal formula — traditional Ayurvedic herbs like Ashwagandha and Shilajit. FSSAI and GMP certified. It is safe for most men. If you have a medical condition or are on medication, please consult your doctor first. The advisor will also review your health history.",
+    q: "⚠️ क्या इसका कोई साइड इफेक्ट है?",
+    a: "ESI Wellness Alpha Men 100% हर्बल फॉर्मूला है — जैसे अश्वगंधा और शिलाजीत। यह FSSAI और GMP प्रमाणित है। यह सुरक्षित है। यदि आपको कोई बीमारी है या आपकी दवा चल रही है, तो कृपया पहले अपने डॉक्टर से सलाह लें। एडवाइजर आपकी हेल्थ हिस्ट्री भी चेक करेंगे।",
   },
   {
-    q: "🔒 Are my details / phone number safe?",
-    a: "100% safe. Your details are stored only in our encrypted database. We do not sell or share them with any third party. The advisor will call you once — if you say no, there will be no spam calls afterwards. No WhatsApp or SMS marketing either.",
+    q: "🔒 क्या मेरी डिटेल्स और फोन नंबर सुरक्षित हैं?",
+    a: "100% सुरक्षित हैं। आपकी डिटेल्स हमारे सुरक्षित डेटाबेस में रहती हैं। हम इसे किसी तीसरे पक्ष के साथ साझा नहीं करते हैं। एडवाइजर सिर्फ एक बार कॉल करेंगे — यदि आप मना कर देंगे तो उसके बाद कोई स्पैम कॉल या मैसेज नहीं आएगा। कोई स्पैम व्हाट्सएप या एसएमएस मार्केटिंग भी नहीं होगी।",
   },
   {
-    q: "📦 How will delivery work? Will anyone find out?",
-    a: "It arrives in a plain brown box — no product name, no company logo, no label of what's inside. The delivery person, family, or neighbours can't tell. 2–4 days for major cities, 4–7 days for other locations.",
+    q: "📦 डिलीवरी कैसे होगी? क्या किसी को पता चलेगा?",
+    a: "पार्सल बिल्कुल साधारण (प्लेन) बॉक्स में आएगा — बॉक्स पर न तो प्रोडक्ट का नाम होगा और न ही कंपनी का लोगो। डिलीवरी करने वाले या परिवार को कुछ पता नहीं चलेगा। बड़े शहरों में 2-4 दिन और अन्य जगहों पर 4-7 दिन लगेंगे।",
   },
   {
-    q: "↩️ Can I get a refund if the product isn't right for me?",
-    a: "Yes. We offer a 7-day return policy for unopened / sealed packs. Full refund for any quality issue. For opened packs, the advisor will help case-by-case. With COD, you pay only after the product reaches you — minimal risk.",
+    q: "↩️ यदि प्रोडक्ट मेरे लिए सही न हो, तो क्या मुझे रिफंड मिल सकता है?",
+    a: "हाँ। सीलबंद (Unopened) पैक पर 7 दिनों की रिटर्न पॉलिसी है। किसी भी क्वालिटी इश्यू पर पूरा रिफंड मिलेगा। खुले हुए पैक के लिए एडवाइजर मदद करेंगे। कैश ऑन डिलीवरी में आपको पार्सल मिलने के बाद ही भुगतान करना है — रिस्क बिल्कुल जीरो है।",
   },
   {
-    q: "📞 Who will call me and when?",
-    a: "Our Wellness Advisor (Dr. Rakesh K. or team) will call you within 1–4 hours of form submission, during the time slot you select. The call lasts 15–30 minutes — a confidential, judgement-free conversation.",
+    q: "📞 मुझे कौन और कब कॉल करेगा?",
+    a: "हमारे वेलनेस एडवाइजर (डॉ. राकेश के. या उनकी टीम) फॉर्म भरने के 1-4 घंटे के भीतर आपके चुने हुए समय पर कॉल करेंगे। कॉल 15-30 मिनट की होगी — बिल्कुल गोपनीय बातचीत।",
   },
 ];
 
@@ -226,7 +226,7 @@ function Advertorial() {
 
       {/* Disclosure */}
       <div className="bg-ink/5 text-center text-[11px] uppercase tracking-wider text-ink-muted py-1.5">
-        Sponsored Wellness Consultation
+        प्रायोजित वेलनेस परामर्श (Sponsored Wellness Consultation)
       </div>
 
       {/* Header */}
@@ -241,7 +241,7 @@ function Advertorial() {
             className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
           >
             <PhoneCall className="h-4 w-4" />
-            Book free call
+            मुफ़्त कॉल बुक करें
           </a>
         </div>
       </header>
@@ -256,18 +256,17 @@ function Advertorial() {
             <div className="text-center lg:text-left animate-fade-in-up">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                Free Personal Consultation
+                मुफ़्त व्यक्तिगत परामर्श
               </span>
 
               <h1 className="mt-4 font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold leading-[1.15] text-ink">
-                For stamina, energy & confidence —{" "}
-                <span className="text-brand">a free personal consultation</span>
+                स्टैमिना, एनर्जी और कॉन्फिडेंस के लिए —{" "}
+                <span className="text-brand">मुफ़्त व्यक्तिगत परामर्श</span>
               </h1>
 
               <p className="mt-4 text-base sm:text-lg text-ink-muted leading-relaxed">
-                Confused about ESI Wellness Alpha Men? Share your details. Our wellness advisor will
-                explain <strong className="text-ink">in a confidential call</strong> — usage,
-                fit, pricing and delivery.
+                ESI Wellness Alpha Men को लेकर असमंजस में हैं? अपनी डिटेल्स शेयर करें। हमारे वेलनेस एडवाइजर आपको{" "}
+                <strong className="text-ink">गोपनीय कॉल (Confidential call) पर</strong> सब समझाएंगे — इस्तेमाल का तरीका, सही पैक, कीमत और डिलीवरी।
               </p>
 
               {/* Hero main image (mobile shows here) */}
@@ -284,19 +283,19 @@ function Advertorial() {
               <ul className="mt-3 grid grid-cols-2 gap-2 text-left text-sm">
                 <li className="flex items-center gap-2 text-ink">
                   <Check className="h-4 w-4 text-brand flex-shrink-0" />
-                  <span>100% confidential call</span>
+                  <span>100% गोपनीय कॉल</span>
                 </li>
                 <li className="flex items-center gap-2 text-ink">
                   <Check className="h-4 w-4 text-brand flex-shrink-0" />
-                  <span>No awkward questions</span>
+                  <span>कोई अजीब सवाल नहीं</span>
                 </li>
                 <li className="flex items-center gap-2 text-ink">
                   <Check className="h-4 w-4 text-brand flex-shrink-0" />
-                  <span>Cash on Delivery</span>
+                  <span>कैश ऑन डिलीवरी (COD)</span>
                 </li>
                 <li className="flex items-center gap-2 text-ink">
                   <Check className="h-4 w-4 text-brand flex-shrink-0" />
-                  <span>Discreet delivery</span>
+                  <span>बिना लेबल के प्लेन पैकेजिंग</span>
                 </li>
               </ul>
 
@@ -329,10 +328,10 @@ function Advertorial() {
       <section className="border-t border-rule bg-paper">
         <div className="mx-auto max-w-4xl px-4 py-14 sm:py-20 text-center">
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
-            Do you feel this too?
+            क्या आप भी ऐसा महसूस करते हैं?
           </h2>
           <p className="mt-2 text-ink-muted">
-            You're not alone. Lakhs of Indian men feel exactly the same.
+            आप अकेले नहीं हैं। लाखों भारतीय पुरुष बिल्कुल ऐसा ही महसूस करते हैं।
           </p>
 
           <ul className="mt-8 grid gap-3 max-w-2xl mx-auto text-left">
@@ -350,7 +349,7 @@ function Advertorial() {
           </ul>
 
           <div className="mt-8">
-            <ScrollToFormButton>Get confidential guidance</ScrollToFormButton>
+            <ScrollToFormButton>गोपनीय गाइडेंस प्राप्त करें</ScrollToFormButton>
           </div>
         </div>
       </section>
@@ -362,10 +361,10 @@ function Advertorial() {
         <div className="mx-auto max-w-5xl px-4 py-14 sm:py-20">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
-              ESI Wellness Alpha Men's <span className="text-brand">daily wellness support</span>
+              ESI Wellness Alpha Men का <span className="text-brand">दैनिक वेलनेस सपोर्ट</span>
             </h2>
             <p className="mt-2 text-ink-muted">
-              A herbal formula that fits easily into your daily wellness routine.
+              एक हर्बल फॉर्मूला जो आपकी डेली रूटीन में आसानी से फिट हो जाता है।
             </p>
           </div>
 
@@ -397,7 +396,7 @@ function Advertorial() {
           </div>
 
           <p className="mt-6 text-center text-xs text-ink-muted italic">
-            * Results may vary. This is a wellness support product — no medical claims are made.
+            * परिणाम अलग-अलग हो सकते हैं। यह एक वेलनेस सपोर्ट प्रोडक्ट है — इससे कोई मेडिकल दावा नहीं किया जाता है।
           </p>
         </div>
       </section>
@@ -410,13 +409,13 @@ function Advertorial() {
           <div className="text-center max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand">
               <PhoneCall className="h-3.5 w-3.5" />
-              Step by step
+              आसान स्टेप्स
             </span>
             <h2 className="mt-4 font-serif text-2xl sm:text-3xl font-bold text-ink">
-              What happens after the call?
+              फॉर्म भरने के बाद क्या होता है?
             </h2>
             <p className="mt-2 text-ink-muted">
-              A fully transparent process. No hidden steps.
+              बिल्कुल पारदर्शी प्रक्रिया। कोई छिपा हुआ कदम नहीं।
             </p>
           </div>
 
@@ -469,7 +468,7 @@ function Advertorial() {
           </div>
 
           <div className="mt-10 text-center">
-            <ScrollToFormButton>Book your free call</ScrollToFormButton>
+            <ScrollToFormButton>मुफ़्त कॉल बुक करें</ScrollToFormButton>
           </div>
         </div>
       </section>
@@ -481,10 +480,10 @@ function Advertorial() {
         <div className="mx-auto max-w-5xl px-4 py-14 sm:py-20">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
-              Real experiences
+              वास्तविक ग्राहकों के अनुभव
             </h2>
             <p className="mt-2 text-ink-muted">
-              What customers say after speaking to our advisor.
+              हमारे एडवाइजर से बात करने के बाद ग्राहकों का क्या कहना है।
             </p>
           </div>
 
@@ -537,7 +536,7 @@ function Advertorial() {
                 <div className="mt-4 space-y-3">
                   <div className="rounded-lg border-l-4 border-brand bg-brand-soft/40 p-3">
                     <div className="text-[10px] font-bold uppercase tracking-wider text-brand">
-                      Before
+                      पहले (Before)
                     </div>
                     <p className="mt-1 text-xs sm:text-sm text-ink-muted leading-relaxed">
                       "{t.before}"
@@ -546,7 +545,7 @@ function Advertorial() {
                   <div className="rounded-lg border-l-4 border-ink-muted/30 bg-ink/5 p-3">
                     <div className="flex items-center justify-between">
                       <div className="text-[10px] font-bold uppercase tracking-wider text-ink-muted">
-                        After {t.duration}
+                        बाद में ({t.duration})
                       </div>
                     </div>
                     <p className="mt-1 text-xs sm:text-sm text-ink leading-relaxed">
@@ -559,7 +558,7 @@ function Advertorial() {
           </div>
 
           <p className="mt-6 text-center text-xs text-ink-muted italic">
-            * Genuine customer feedback. Full names hidden for privacy. Results may vary by individual.
+            * वास्तविक ग्राहक प्रतिक्रिया। गोपनीयता के लिए नाम बदले गए हैं। परिणाम अलग-अलग व्यक्तियों में भिन्न हो सकते हैं।
           </p>
         </div>
       </section>
@@ -572,14 +571,14 @@ function Advertorial() {
           <div className="text-center max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-paper/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-paper/90">
               <HeartPulse className="h-3.5 w-3.5" />
-              Real-life results
+              रियल-लाइफ परिणाम (Real-life results)
             </span>
             <h2 className="mt-4 font-serif text-2xl sm:text-3xl font-bold text-paper">
-              Reclaim <span className="text-brand-glow">intimacy, confidence & connection</span>
+              वापस पाएं अपनी <span className="text-brand-glow">इंटीमेसी, कॉन्फिडेंस और कनेक्शन</span>
             </h2>
             <p className="mt-3 text-sm sm:text-base text-paper/70 leading-relaxed">
-              When stamina and energy return, it's not just the bedroom —
-              you'll feel the difference in your relationship, confidence and overall life.
+              जब स्टैमिना और एनर्जी वापस आती है, तब सिर्फ बेडरूम में ही नहीं —
+              आपको अपने रिश्ते, आत्मविश्वास और समग्र जीवन में बदलाव दिखेगा।
             </p>
           </div>
 
@@ -587,18 +586,18 @@ function Advertorial() {
             {[
               {
                 src: lifestyle1,
-                tag: "Intimacy",
-                line: "Reconnect emotionally with your partner.",
+                tag: "इंटीमेसी",
+                line: "अपने पार्टनर के साथ भावनात्मक रूप से फिर से जुड़ें।",
               },
               {
                 src: lifestyle2,
-                tag: "Confidence",
-                line: "Be free of performance anxiety.",
+                tag: "आत्मविश्वास",
+                line: "परफॉरमेंस एंग्जायटी से मुक्त रहें।",
               },
               {
                 src: lifestyle3,
-                tag: "Connection",
-                line: "Your relationship grows closer and deeper.",
+                tag: "कनेक्शन",
+                line: "आपका रिश्ता और भी करीब और गहरा हो जाता है।",
               },
             ].map((item, i) => (
               <div
@@ -625,11 +624,11 @@ function Advertorial() {
           </div>
 
           <p className="mt-6 text-center text-[11px] text-paper/50 italic">
-            * Representational images. Results may vary by individual. ESI Wellness Alpha Men is a herbal wellness support product.
+            * ये केवल सांकेतिक चित्र हैं। परिणाम अलग-अलग हो सकते हैं। ESI Wellness Alpha Men एक हर्बल वेलनेस सपोर्ट प्रोडक्ट है।
           </p>
 
           <div className="mt-8 text-center">
-            <ScrollToFormButton>Get your free call</ScrollToFormButton>
+            <ScrollToFormButton>मुफ़्त कॉल प्राप्त करें</ScrollToFormButton>
           </div>
         </div>
       </section>
@@ -641,23 +640,23 @@ function Advertorial() {
         <div className="mx-auto max-w-4xl px-4 py-14 sm:py-20">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
-              ESI Wellness Alpha Men vs <span className="text-ink-muted">typical market products</span>
+              ESI Wellness Alpha Men बनाम <span className="text-ink-muted">बाजार के सामान्य उत्पाद</span>
             </h2>
             <p className="mt-2 text-ink-muted">
-              An honest comparison — why smart men choose the advisor-guided approach.
+              एक ईमानदार तुलना — समझदार पुरुष एडवाइजर-गाइडेड दृष्टिकोण क्यों चुनते हैं।
             </p>
           </div>
 
           <div className="mt-10 overflow-hidden rounded-2xl border border-rule bg-card shadow-sm">
             <div className="grid grid-cols-3 bg-ink text-paper">
               <div className="p-4 text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                Feature
+                विशेषताएं (Features)
               </div>
               <div className="p-4 text-center text-xs sm:text-sm font-semibold uppercase tracking-wider bg-brand text-brand-foreground">
                 ESI Wellness Alpha Men
               </div>
               <div className="p-4 text-center text-xs sm:text-sm font-semibold uppercase tracking-wider">
-                Typical Products
+                बाजार के सामान्य उत्पाद
               </div>
             </div>
             {compare.map((row, i) => (
@@ -697,20 +696,20 @@ function Advertorial() {
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="text-center lg:text-left">
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-ink leading-tight">
-                Still unsure? <br />
-                <span className="text-brand">Speak to our advisor first.</span>
+                अभी भी असमंजस में हैं? <br />
+                <span className="text-brand">पहले हमारे एडवाइजर से बात करें।</span>
               </h2>
               <p className="mt-4 text-base text-ink-muted leading-relaxed">
-                No pressure. No awkward questions. Just a personal explanation —
-                of the product, usage, pricing and delivery.
+                कोई दबाव नहीं। कोई अजीब सवाल नहीं। बस कॉल पर आसान स्पष्टीकरण —
+                प्रोडक्ट, इस्तेमाल के तरीके, कीमत और डिलीवरी के बारे में।
               </p>
 
               <ul className="mt-6 space-y-2.5 text-left max-w-md lg:max-w-none mx-auto lg:mx-0">
                 {[
-                  { icon: Lock, text: "100% private and confidential" },
-                  { icon: Truck, text: "Delivered in discreet packaging" },
-                  { icon: Package, text: "Cash on Delivery — pay after you receive it" },
-                  { icon: ShieldCheck, text: "Trained wellness advisors" },
+                  { icon: Lock, text: "100% प्राइवेट और गोपनीय" },
+                  { icon: Truck, text: "साधारण प्लेन पैकेजिंग में डिलीवरी" },
+                  { icon: Package, text: "कैश ऑन डिलीवरी (COD) — डिलीवरी के समय भुगतान करें" },
+                  { icon: ShieldCheck, text: "प्रशिक्षित वेलनेस एडवाइजर" },
                 ].map((f, i) => {
                   const Icon = f.icon;
                   return (
@@ -748,10 +747,10 @@ function Advertorial() {
         <div className="mx-auto max-w-3xl px-4 py-14 sm:py-20">
           <div className="text-center">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-ink">
-              Frequently asked questions
+              अक्सर पूछे जाने वाले प्रश्न (FAQs)
             </h2>
             <p className="mt-2 text-ink-muted">
-              The questions on your mind — answered honestly, from our side.
+              आपके मन के सवाल — हमारी तरफ से सच्चे जवाब।
             </p>
           </div>
 
@@ -769,7 +768,7 @@ function Advertorial() {
           </Accordion>
 
           <div className="mt-10 text-center">
-            <ScrollToFormButton>Get a free callback</ScrollToFormButton>
+            <ScrollToFormButton>मुफ़्त कॉल बैक प्राप्त करें</ScrollToFormButton>
           </div>
         </div>
       </section>
@@ -779,8 +778,7 @@ function Advertorial() {
         <div className="mx-auto max-w-6xl px-4 py-8 text-center text-xs text-ink-muted">
           <p className="font-semibold text-ink">ESI Wellness × Alpha Men</p>
           <p className="mt-2">
-            This is a wellness support product. Results may vary. Pregnant or breastfeeding women,
-            minors, or anyone with a medical condition should consult their doctor.
+            यह एक वेलनेस सपोर्ट प्रोडक्ट है। परिणाम अलग-अलग हो सकते हैं। नाबालिगों या किसी भी चिकित्सीय स्थिति वाले व्यक्ति को अपने डॉक्टर से सलाह लेनी चाहिए।
           </p>
           <p className="mt-2">© {new Date().getFullYear()} ESI Wellness. All rights reserved.</p>
         </div>

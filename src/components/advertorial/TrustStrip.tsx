@@ -5,12 +5,12 @@ const SHORT_TESTIMONIALS = [
     name: "Karthik, 34",
     city: "Madurai",
     quote:
-      "The advisor called and explained everything in detail. Zero pressure.",
+      "एडवाइजर ने कॉल करके सब कुछ विस्तार से समझाया। कोई जबरदस्ती या दबाव नहीं था।",
   },
   {
     name: "Suresh, 41",
     city: "Coimbatore",
-    quote: "It arrived in discreet packaging. I could buy it safely without family knowing.",
+    quote: "पार्सल बिल्कुल साधारण प्लेन पैकेजिंग में आया। परिवार को पता चले बिना बिना किसी डर के ऑर्डर मिल गया।",
   },
 ];
 
@@ -23,7 +23,7 @@ export function TrustStrip() {
           <li className="flex items-center gap-1.5">
             <Users className="h-4 w-4 text-brand" />
             <span>
-              Trusted by <strong className="text-ink">10,000+</strong> Indian men
+              <strong className="text-ink">10,000+</strong> भारतीय पुरुषों का भरोसा
             </span>
           </li>
           <li className="hidden sm:block h-4 w-px bg-rule" />
@@ -42,12 +42,12 @@ export function TrustStrip() {
           <li className="hidden sm:block h-4 w-px bg-rule" />
           <li className="flex items-center gap-1.5">
             <Leaf className="h-4 w-4 text-brand" />
-            <span>Ayurveda Certified</span>
+            <span>आयुर्वेद प्रमाणित (Ayurveda Certified)</span>
           </li>
           <li className="hidden sm:block h-4 w-px bg-rule" />
           <li className="flex items-center gap-1.5">
             <Lock className="h-4 w-4 text-brand" />
-            <span>100% confidential</span>
+            <span>100% गोपनीय (Confidential)</span>
           </li>
         </ul>
 
