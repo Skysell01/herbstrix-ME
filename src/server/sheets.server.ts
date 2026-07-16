@@ -63,6 +63,7 @@ function rowValues(row: LeadRow): (string | number)[] {
 /** Append a new row. Returns the updated range, e.g. "Leads!A7:I7". */
 export async function appendLeadToSheet(row: LeadRow): Promise<string | null> {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  console.log(`[Google Sheets] Webhook URL is: ${webhookUrl ? webhookUrl.slice(0, 45) + "..." : "undefined"}`);
   if (webhookUrl) {
     console.log("[Apps Script] Appending lead via Webhook...");
     const res = await fetch(webhookUrl, {
@@ -105,6 +106,7 @@ export async function updateLeadRowInSheet(
   row: LeadRow,
 ): Promise<void> {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  console.log(`[Google Sheets] Update Webhook URL is: ${webhookUrl ? webhookUrl.slice(0, 45) + "..." : "undefined"}`);
   if (webhookUrl) {
     console.log("[Apps Script] Updating lead via Webhook...");
     const res = await fetch(webhookUrl, {
