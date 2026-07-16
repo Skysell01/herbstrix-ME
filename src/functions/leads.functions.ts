@@ -43,7 +43,7 @@ export const submitLead = createServerFn({ method: "POST" })
       });
 
       if (isDuplicate) {
-        return { ok: false as const, error: "you already submitted the form." };
+        return { ok: false as const, error: "आप पहले ही फॉर्म सबमिट कर चुके हैं।" };
       }
 
       const meta = {
