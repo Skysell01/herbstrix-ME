@@ -1,7 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { appendLeadToSheet, updateLeadRowInSheet, getLeadsFromSheet } from "../server/sheets.server";
-import { pushLeadToESIWellness } from "../server/esiwellness.server";
 import { getEnvVar } from "../server/env";
 
 const ConcernEnum = z.enum([
@@ -57,17 +56,7 @@ export const submitLead = createServerFn({ method: "POST" })
       // Generate a unique lead ID locally without database dependencies
       const leadId = crypto.randomUUID();
 
-      // Fire ESI Wellness CRM and Sheets in parallel
-      const esiWellnessPromise = pushLeadToESIWellness({
-        name: data.name,
-        phone: data.phone,
-        city: data.city ?? null,
-      }).catch((e) => {
-        console.error("ESI Wellness forward errored:", e);
-        return { ok: false, orderId: null, status: 0, raw: "" } as const;
-      });
-
-      const sheetsPromise = appendLeadToSheet({
+      const sheetRange = await appendLeadToSheet({
         name: data.name,
         phone: data.phone,
         age: data.age ?? null,
@@ -83,14 +72,7 @@ export const submitLead = createServerFn({ method: "POST" })
         return null;
       });
 
-      const [esiWellnessResult, sheetRange] = await Promise.all([
-        esiWellnessPromise,
-        sheetsPromise,
-      ]);
-
-      const herbstrixOrderId = esiWellnessResult.orderId;
-
-      return { ok: true as const, leadId, sheetRange, herbstrixOrderId };
+      return { ok: true as const, leadId, sheetRange, herbstrixOrderId: null };
     } catch (err: any) {
       console.error("Submit lead error:", err);
       return { ok: false as const, error: err?.message || "Could not save your details. Please try again." };
