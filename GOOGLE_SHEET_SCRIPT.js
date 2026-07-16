@@ -48,24 +48,6 @@ function doPost(e) {
     }
 
     if (action === "append") {
-      var phone = data.phone ? String(data.phone).trim().replace(/\D/g, "") : "";
-      if (phone) {
-        var lastRow = sheet.getLastRow();
-        if (lastRow > 1) {
-          // Column C is phone (3rd column)
-          var phones = sheet.getRange(2, 3, lastRow - 1, 1).getValues();
-          for (var i = 0; i < phones.length; i++) {
-            var existingPhone = String(phones[i][0]).trim().replace(/\D/g, "");
-            if (existingPhone === phone) {
-              return ContentService.createTextOutput(JSON.stringify({
-                ok: false,
-                error: "आप पहले ही फॉर्म सबमिट कर चुके हैं।"
-              })).setMimeType(ContentService.MimeType.JSON);
-            }
-          }
-        }
-      }
-
       var timestamp = getISTTimestamp();
       var newRow = [
         timestamp,
