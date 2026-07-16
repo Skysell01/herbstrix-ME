@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { appendLeadToSheet, updateLeadRowInSheet, getLeadsFromSheet } from "../server/sheets.server";
 import { pushLeadToESIWellness } from "../server/esiwellness.server";
+import { getEnvVar } from "../server/env";
 
 const ConcernEnum = z.enum([
   "stamina",
@@ -144,7 +145,7 @@ const ListSchema = z.object({ token: z.string().min(1) });
 export const listLeads = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => ListSchema.parse(input))
   .handler(async ({ data }) => {
-    const expected = process.env.LEADS_ADMIN_TOKEN;
+    const expected = getEnvVar("LEADS_ADMIN_TOKEN");
     if (!expected || data.token !== expected) {
       return { ok: false as const, error: "Invalid access token." };
     }

@@ -1,6 +1,7 @@
 // Forward leads to the ESI Wellness advertiser API.
+import { getEnvVar } from "./env";
 // Docs: GET https://herbstrix.com/apileads/leads.php?name=&number=&channel_id=&token=&product_id=...
-const ENDPOINT = process.env.CRM_API_URL || "https://herbstrix.com/apileads/leads.php";
+const ENDPOINT = getEnvVar("CRM_API_URL") || "https://herbstrix.com/apileads/leads.php";
 const PRODUCT_ID = "93";
 const CHANNEL_ID = "AJN-TM-SKM";
 
@@ -29,7 +30,7 @@ function extractOrderId(raw: string): string | null {
 export async function pushLeadToESIWellness(
   payload: ESIWellnessPayload,
 ): Promise<ESIWellnessResult> {
-  const token = process.env.HERBSTRIX_TOKEN;
+  const token = getEnvVar("HERBSTRIX_TOKEN");
   if (!token) throw new Error("HERBSTRIX_TOKEN is not configured");
 
   const params = new URLSearchParams({

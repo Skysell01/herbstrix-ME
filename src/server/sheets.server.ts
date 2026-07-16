@@ -1,4 +1,5 @@
 // Append leads to a Google Sheet via the Lovable connector gateway or direct Apps Script Webhook.
+import { getEnvVar } from "./env";
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/google_sheets/v4";
 const SPREADSHEET_ID = "158cljYadRPfbUE3E-94bzrhdj61n4qSOWGI9DPHhQqc";
 const APPEND_RANGE = "Leads!A:K";
@@ -17,8 +18,8 @@ export type LeadRow = {
 };
 
 function authHeaders() {
-  const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-  const GOOGLE_SHEETS_API_KEY = process.env.GOOGLE_SHEETS_API_KEY;
+  const LOVABLE_API_KEY = getEnvVar("LOVABLE_API_KEY");
+  const GOOGLE_SHEETS_API_KEY = getEnvVar("GOOGLE_SHEETS_API_KEY");
   if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
   if (!GOOGLE_SHEETS_API_KEY) throw new Error("GOOGLE_SHEETS_API_KEY is not configured");
   return {
@@ -62,7 +63,7 @@ function rowValues(row: LeadRow): (string | number)[] {
 
 /** Append a new row. Returns the updated range, e.g. "Leads!A7:I7". */
 export async function appendLeadToSheet(row: LeadRow): Promise<string | null> {
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  const webhookUrl = getEnvVar("GOOGLE_SHEET_WEBHOOK_URL");
   console.log(`[Google Sheets] Webhook URL is: ${webhookUrl ? webhookUrl.slice(0, 45) + "..." : "undefined"}`);
   if (webhookUrl) {
     console.log("[Apps Script] Appending lead via Webhook...");
@@ -105,7 +106,7 @@ export async function updateLeadRowInSheet(
   range: string,
   row: LeadRow,
 ): Promise<void> {
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  const webhookUrl = getEnvVar("GOOGLE_SHEET_WEBHOOK_URL");
   console.log(`[Google Sheets] Update Webhook URL is: ${webhookUrl ? webhookUrl.slice(0, 45) + "..." : "undefined"}`);
   if (webhookUrl) {
     console.log("[Apps Script] Updating lead via Webhook...");
@@ -144,7 +145,7 @@ export async function updateLeadRowInSheet(
 
 /** Fetch all leads from Google Sheets. */
 export async function getLeadsFromSheet(): Promise<any[]> {
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  const webhookUrl = getEnvVar("GOOGLE_SHEET_WEBHOOK_URL");
   if (webhookUrl) {
     console.log("[Apps Script] Listing leads via Webhook...");
     const res = await fetch(webhookUrl, {
