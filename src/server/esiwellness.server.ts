@@ -1,7 +1,6 @@
 // Forward leads to the ESI Wellness advertiser API.
 import { getEnvVar } from "./env";
 // Docs: GET https://herbstrix.com/apileads/leads.php?name=&number=&channel_id=&token=&product_id=...
-const ENDPOINT = getEnvVar("CRM_API_URL") || "https://herbstrix.com/apileads/leads.php";
 const PRODUCT_ID = "93";
 const CHANNEL_ID = "AJN-TM-SKM";
 
@@ -46,7 +45,8 @@ export async function pushLeadToESIWellness(
   if (payload.affiliateId) params.set("affiliate_id", payload.affiliateId);
   if (payload.clickid) params.set("clickid", payload.clickid);
 
-  const url = `${ENDPOINT}?${params.toString()}`;
+  const endpoint = getEnvVar("CRM_API_URL") || "https://herbstrix.com/apileads/leads.php";
+  const url = `${endpoint}?${params.toString()}`;
   const safeUrl = url.replace(token, "***REDACTED***");
 
   const ctrl = new AbortController();
