@@ -1,7 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "bright-lead-tool-8fbc66d2",
+  "name": "herbstrix-me",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
+  "vars": {
+    "GOOGLE_SHEET_WEBHOOK_URL": "https://script.google.com/macros/s/AKfycbycaD07CepI-3dLVXRYWWsRLjXzqz99iSBkme4x7bvQsA2iWT8xvaS9JjqUVskwYmMn/exec",
+    "LEADS_ADMIN_TOKEN": "admin123"
+  }
 }
