@@ -67,9 +67,6 @@ export const submitLead = createServerFn({ method: "POST" })
         leadId,
         herbstrixOrderId: null,
         herbstrixStatus: "pending",
-      }).catch((e) => {
-        console.error("Google Sheets mirror failed:", e);
-        return null;
       });
 
       return { ok: true as const, leadId, sheetRange, herbstrixOrderId: null };
