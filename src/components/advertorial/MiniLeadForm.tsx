@@ -107,7 +107,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
       setStep("done");
       return;
     }
-    track("FormSubmitAttempt", { form: "mini", step: 1 });
+    console.log("Mini Form Step 1 submitting:", values);
     try {
       const res = await submit({
         data: {
@@ -116,6 +116,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           city: "",
         },
       });
+      console.log("Mini Form Step 1 response:", res);
       if (!res.ok) {
         toast.error(res.error);
         return;
@@ -150,7 +151,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
   };
 
   const onSubmitStep2 = async (values: Step2Values) => {
-    track("FormSubmitAttempt", { form: "mini", step: 2 });
+    console.log("Mini Form Step 2 submitting:", values);
     try {
       const res = await update({
         data: {
@@ -164,6 +165,7 @@ export function MiniLeadForm({ id = "claim" }: { id?: string }) {
           bestTime: values.bestTime,
         },
       });
+      console.log("Mini Form Step 2 response:", res);
       if (!res.ok) {
         toast.error(res.error);
         return;

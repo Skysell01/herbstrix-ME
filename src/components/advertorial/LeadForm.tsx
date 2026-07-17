@@ -64,7 +64,9 @@ export function LeadForm({ id = "claim", compact = false }: { id?: string; compa
 
   const onSubmit = async (values: FormValues) => {
     try {
+      console.log("Form values being submitted (Bottom Form):", values);
       const res = await submit({ data: values });
+      console.log("Server response received (Bottom Form):", res);
       if (!res.ok) {
         toast.error(res.error);
         return;

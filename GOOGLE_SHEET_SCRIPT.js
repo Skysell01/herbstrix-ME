@@ -19,7 +19,7 @@
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  lock.tryLock(10000);
+  lock.tryLock(10000); // 10-second lock to prevent race conditions
   
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Leads");
@@ -41,13 +41,21 @@ function doPost(e) {
       sheet.getRange("A1:K1").setFontWeight("bold").setBackground("#f3f3f3");
     }
 
-    var data = JSON.parse(e.postData.contents);
+    var postDataContents = e && e.postData && e.postData.contents;
+    if (!postDataContents) {
+      return ContentService.createTextOutput(JSON.stringify({
+        ok: false,
+        error: "No post data received"
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
+    var data = JSON.parse(postDataContents);
     var action = data.action;
 
     if (action === "append") {
       var d = new Date();
       var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-      var nd = new Date(utc + (3600000 * 5.5)); // UTC + 5:30
+      var nd = new Date(utc + (3600000 * 5.5)); // UTC + 5:30 (IST)
       var pad = function(n) { return n < 10 ? "0" + n : n; };
       var timestamp = nd.getFullYear() + "-" + pad(nd.getMonth() + 1) + "-" + pad(nd.getDate()) + " " + pad(nd.getHours()) + ":" + pad(nd.getMinutes()) + ":" + pad(nd.getSeconds()) + " IST";
 
@@ -77,6 +85,7 @@ function doPost(e) {
       var sheetRange = data.sheetRange;
       var foundRow = -1;
 
+      // Locate row using sheetRange suggestion if available
       if (sheetRange) {
         try {
           var range = sheet.getRange(sheetRange);
@@ -88,6 +97,7 @@ function doPost(e) {
         } catch (err) {}
       }
 
+      // If sheetRange didn't work, locate row by scanning the LeadId column (column 9)
       if (foundRow === -1 && leadId) {
         var lastRow = sheet.getLastRow();
         if (lastRow > 1) {
@@ -108,6 +118,7 @@ function doPost(e) {
         })).setMimeType(ContentService.MimeType.JSON);
       }
 
+      // Dynamically update only the fields provided
       if (data.name !== undefined) sheet.getRange(foundRow, 2).setValue(data.name);
       if (data.phone !== undefined) sheet.getRange(foundRow, 3).setValue(data.phone);
       if (data.age !== undefined) sheet.getRange(foundRow, 4).setValue(data.age);
@@ -160,6 +171,7 @@ function doPost(e) {
     })).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
+    console.error("Error details: " + error.toString());
     return ContentService.createTextOutput(JSON.stringify({
       ok: false,
       error: error.toString()

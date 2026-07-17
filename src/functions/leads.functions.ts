@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { appendLeadToSheet, updateLeadRowInSheet, getLeadsFromSheet } from "../server/sheets.server";
 import { getEnvVar } from "../server/env";
+import { pushLeadToESIWellness } from "../server/esiwellness.server";
 
 const ConcernEnum = z.enum([
   "stamina",
@@ -30,19 +31,35 @@ export const submitLead = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => LeadSchema.parse(input))
   .handler(async ({ data }) => {
     try {
+      console.log("\n--- [submitLead Server Function Started] ---");
+      console.log("Received data:", data);
+
+      const normalizedPhone = data.phone.trim().replace(/\D/g, "");
+      console.log("Normalized Phone:", normalizedPhone);
+
       // Check for duplicate leads in the sheet using phone number
+      console.log("Fetching existing leads from Google Sheet to check duplicates...");
       const existingLeads = await getLeadsFromSheet().catch((e) => {
         console.error("Failed to fetch existing leads for duplicate check:", e);
         return [];
       });
+      console.log(`Fetched ${existingLeads.length} existing leads.`);
 
-      const normalizedPhone = data.phone.trim().replace(/\D/g, "");
-      const isDuplicate = existingLeads.some((lead) => {
+      const isDev = getEnvVar("NODE_ENV") === "development";
+      console.log("Is Dev Environment?", isDev);
+
+      const isDuplicate = !isDev && existingLeads.some((lead) => {
         const leadPhone = lead.phone ? String(lead.phone).trim().replace(/\D/g, "") : "";
         return leadPhone === normalizedPhone;
       });
+      console.log("Is duplicate phone number?", isDuplicate);
+
+      if (isDev) {
+        console.log("Bypassing duplicate check for local development.");
+      }
 
       if (isDuplicate) {
+        console.warn(`Duplicate lead submission blocked for phone: ${normalizedPhone}`);
         return { ok: false as const, error: "आप पहले ही फॉर्म सबमिट कर चुके हैं।" };
       }
 
@@ -55,7 +72,32 @@ export const submitLead = createServerFn({ method: "POST" })
 
       // Generate a unique lead ID locally without database dependencies
       const leadId = crypto.randomUUID();
+      console.log("Generated Lead ID:", leadId);
 
+      // Forward lead to Herbstrix CRM
+      let herbstrixOrderId: string | null = null;
+      let herbstrixStatus = "pending";
+      
+      console.log("Pushing lead to Herbstrix CRM...");
+      try {
+        const crmResult = await pushLeadToESIWellness({
+          name: data.name,
+          phone: data.phone,
+          city: data.city ?? null,
+        });
+        console.log("Herbstrix CRM result:", crmResult);
+        if (crmResult.ok && crmResult.orderId) {
+          herbstrixOrderId = crmResult.orderId;
+          herbstrixStatus = "success";
+        } else {
+          herbstrixStatus = "failed";
+        }
+      } catch (crmErr) {
+        console.error("Herbstrix CRM push failed:", crmErr);
+        herbstrixStatus = "failed";
+      }
+
+      console.log("Appending lead to Google Sheet...");
       const sheetRange = await appendLeadToSheet({
         name: data.name,
         phone: data.phone,
@@ -65,13 +107,15 @@ export const submitLead = createServerFn({ method: "POST" })
         bestTime: data.bestTime ?? null,
         sourcePage: meta.page,
         leadId,
-        herbstrixOrderId: null,
-        herbstrixStatus: "pending",
+        herbstrixOrderId,
+        herbstrixStatus,
       });
+      console.log("Google Sheet append completed. Range:", sheetRange);
+      console.log("--- [submitLead Server Function Completed] ---\n");
 
-      return { ok: true as const, leadId, sheetRange, herbstrixOrderId: null };
+      return { ok: true as const, leadId, sheetRange, herbstrixOrderId };
     } catch (err: any) {
-      console.error("Submit lead error:", err);
+      console.error("Submit lead error inside handler:", err);
       return { ok: false as const, error: err?.message || "Could not save your details. Please try again." };
     }
   });
