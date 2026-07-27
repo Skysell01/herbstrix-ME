@@ -70,7 +70,7 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
-const FB_PIXEL_ID = "929169270106539";
+const FB_PIXEL_ID = "1543059396655722";
 
 const fbPixelScript = `!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
